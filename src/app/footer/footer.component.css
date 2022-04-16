@@ -1,0 +1,12 @@
+.custom-footer {
+  background-color: #000000;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  /* margin-top: 5rem; */
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+}
