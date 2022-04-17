@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { UserModel } from '../auth/user.model';
 
 @Component({
   selector: 'app-homepage',
@@ -9,7 +10,8 @@ import Swal from 'sweetalert2';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  
+  constructor(private userModel: UserModel,private router: Router) { }
   temp()
   {
     this.router.navigate(["users/dashboard"]);
@@ -41,7 +43,9 @@ export class HomepageComponent implements OnInit {
       cancelButtonText: 'Stay and Shop',
     }).then((result) => {
       if (result.value) {
-        this.router.navigate(["users/signup"]);
+        this.userModel.setUserValidationStatus(false);
+        this.userModel.setUserId("");
+        this.router.navigate(['/users', 'login']); 
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire('Cancelled', 'Happy shopping :)', 'error');
       }

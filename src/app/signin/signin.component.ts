@@ -66,8 +66,7 @@ export class SigninComponent implements OnDestroy {
           this.userModel.setUserId(responseData.userId);
           if(responseData.role == "admin") {
             this.userModel.setRole("admin");
-            this.router.navigate(['/admin','homepage']);
-            
+            this.router.navigate(['/admin','dashboard']);
           }
           else this.router.navigate(['/users/homepage']);  // routes to the next component
         } else {
