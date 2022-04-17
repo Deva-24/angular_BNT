@@ -12,7 +12,8 @@
             style="width: 20rem;"
             *ngFor="let product of productsInformation; let i = index"
         >
-            <div class="cstm-image-container">
+            
+        <div class="cstm-image-container">
                 <img
                     class="card-img-top cstm-img-resize"
                     src={{product.productImageUrl}}
@@ -27,12 +28,14 @@
                 >
                     Product Price: {{product.price}} ₹ 
                 </p>
+        
                 <p
                     class="card-text"
                     style="margin-bottom: 0;"
                 >
                     Product Stock: {{product.stockQuantity}} nos
                 </p>
+                
                 <button
                     (click)="addProductToCart(userid, product)"
                     class="btn btn-primary"
@@ -45,4 +48,3 @@
         </div>
     </div>
 </div>
-

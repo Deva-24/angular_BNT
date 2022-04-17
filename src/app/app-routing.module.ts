@@ -16,19 +16,19 @@ import { SignupComponent } from './signup/signup.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 
 const routes: Routes = [
-  { path: 'users/signup', component: SignupComponent },
+  { path: 'users/signup', component: SignupComponent, },
   { path: 'users/login', component: SigninComponent, canActivate: [LoginActivate] },
-  { path: 'users/dashboard', component: UserDashboardComponent, },
+  { path: 'users/dashboard', component: UserDashboardComponent,canActivate: [AuthGuardService] },
   { path: 'users/cart', component: CartComponent, canActivate: [AuthGuardService]},
   { path: 'users/orders', component: OrdersComponent, canActivate: [AuthGuardService]},
-  { path: 'users/about', component:AboutComponent},
-  { path: 'users/contact',component:ContactComponent},
-  { path: 'users/homepage',component:HomepageComponent},
+  { path: 'users/about', component:AboutComponent,canActivate: [AuthGuardService]},
+  { path: 'users/contact',component:ContactComponent,canActivate: [AuthGuardService]},
+  { path: 'users/homepage',component:HomepageComponent,canActivate: [AuthGuardService]},
   { path: '', redirectTo: '/users/login', pathMatch: 'full' },
 
   { path: 'admin/dashboard', component: DashboardComponent, canActivate: [AdminAuthGuard] },
   { path: 'admin/orders', component: ViewordersComponent, canActivate: [AdminAuthGuard] },
-  { path: 'admin/feedback',component:FeedbackComponent}
+  { path: 'admin/feedback',component:FeedbackComponent, canActivate: [AdminAuthGuard]}
 ];
 
 @NgModule({

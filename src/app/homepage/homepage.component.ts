@@ -41,14 +41,13 @@ export class HomepageComponent implements OnInit {
       cancelButtonText: 'Stay and Shop',
     }).then((result) => {
       if (result.value) {
-        this.router.navigate(["users/login"]);
+        this.router.navigate(["users/signup"]);
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         Swal.fire('Cancelled', 'Happy shopping :)', 'error');
       }
     });
   }
-  
- 
+
 
   ngOnInit(): void {
   }

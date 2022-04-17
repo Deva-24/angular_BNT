@@ -51,7 +51,8 @@ export class UserDashboardComponent implements OnInit {
           .onTap.pipe(take(1))
           .subscribe(() => {
             this.router.navigate(['/users/cart'])
-          });
+          }
+        );
           
         }
         else {
@@ -61,7 +62,8 @@ export class UserDashboardComponent implements OnInit {
         console.log("error occured")
         console.log(e);
       }
-    })
+    }
+  )
     
   }
 

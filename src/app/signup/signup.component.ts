@@ -87,7 +87,7 @@ export class SignupComponent implements OnInit {
         if (responseData != false) {
           this.userModel.setUserValidationStatus(responseData.validUser);
           this.userModel.setUserId(responseData.userId);
-          this.router.navigate(['/users/dashboard']);
+          this.router.navigate(['users/login']);
         }
         else {
           this.userModel.setUserValidationStatus(false);
