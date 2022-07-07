@@ -1,11 +1,22 @@
-<app-nav-bar></app-nav-bar>
-
+<!-- <app-nav-bar></app-nav-bar> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+<app-navbar></app-navbar>
 <div class="container">
     <h4 [ngStyle]="{'font-family' :'cursive','text-align': 'center', 'marginTop': '2rem', 'marginBottom': '2rem'}">Items you ordered</h4>
     <div
         class="order-card"
         *ngFor="let order of ordersInformation | paginate: { id: 'foo',
-          itemsPerPage: 2,
+          itemsPerPage: 10,
           currentPage: currentPage,
           totalItems: ordersInformation.length}"
     >
@@ -16,6 +27,7 @@
                     alt="not found"
                 >
             </div>
+          
             <div class="product-quantity">
                 <p style="font-weight: bold;">Total Units Ordered</p>
                 <p>{{ order.quantity }}</p>
@@ -51,5 +63,17 @@
           screenReaderCurrentLabel="You're on page"
       >
       </pagination-controls>
+
+<app-footer></app-footer>
+
+       <!-- <button class="btnb" (click)="dialog()" >Generate Invoice <i class='fas fa-file-invoice-dollar'></i></button> 
+       -->
+
   </div>
 </div>
+
+
+
+
+</body>
+</html>

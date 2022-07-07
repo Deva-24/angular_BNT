@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 import { UserModel } from '../auth/user.model';
-
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -10,8 +9,8 @@ import { UserModel } from '../auth/user.model';
 })
 export class HomepageComponent implements OnInit {
 
+  constructor(private userModel:UserModel,private router:Router) { }
   
-  constructor(private userModel: UserModel,private router: Router) { }
   temp()
   {
     this.router.navigate(["users/dashboard"]);
@@ -32,6 +31,12 @@ export class HomepageComponent implements OnInit {
   {
     this.router.navigate(["users/cart"]);
   }
+
+  pg()
+  {
+    this.router.navigate(["users/pgnotfound"]);
+  }
+
   logAlert()
   { 
     Swal.fire({

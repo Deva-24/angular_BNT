@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
@@ -33,6 +33,13 @@ import { AdminAuthGuard } from './auth/adminAuth.guard';
 import { ViewordersComponent } from './admin/vieworders/vieworders.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { FeedbackComponent } from './admin/feedback/feedback.component';
+import { GooglePayButtonModule } from '@google-pay/button-angular';
+import { PgnotfoundComponent } from './pgnotfound/pgnotfound.component';
+import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { NgxScrollTopModule } from 'ngx-scrolltop';
 
 
 @NgModule({
@@ -51,6 +58,13 @@ import { FeedbackComponent } from './admin/feedback/feedback.component';
     ViewordersComponent,
     DialogComponent,
     FeedbackComponent,
+    PgnotfoundComponent,
+    ContactComponent,
+    AboutComponent,
+    HomepageComponent,
+    NavbarComponent,
+
+    
   ],
   imports: [
     BrowserModule,
@@ -59,6 +73,7 @@ import { FeedbackComponent } from './admin/feedback/feedback.component';
     HttpClientModule,
     BrowserAnimationsModule, 
     NgxPaginationModule,
+    GooglePayButtonModule,
     ToastrModule.forRoot({
       positionClass: 'toast-top-right',
       preventDuplicates: true,
@@ -68,8 +83,10 @@ import { FeedbackComponent } from './admin/feedback/feedback.component';
         success: 'toast-success',
         warning: 'toast-warning',
       }
-    })
+    }),
+    NgxScrollTopModule
   ],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     SigninService,
     RestServices,
@@ -82,7 +99,6 @@ import { FeedbackComponent } from './admin/feedback/feedback.component';
     UserModel,
     LoginActivate,
     AdminAuthGuard,
-
     AdminServices
   ],
   bootstrap: [AppComponent]

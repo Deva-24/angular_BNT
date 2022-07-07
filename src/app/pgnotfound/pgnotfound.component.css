@@ -1,0 +1,24 @@
+.hero
+{
+  height: 100vh;
+  background-image:linear-gradient(rgba(0,0,0.0,0.6),rgba(0,0,0.0,0.6)),url(/assets/images/pgb.jpg); /* bg2.jpg */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  padding-top: 20px;
+  text-align: center;
+  color:cadetblue;
+}
+
+p
+{
+  font-family: cursive;
+  color: rgb(236, 214, 15);
+  font-size: 20px;
+  padding: 50px 0;
+  position: absolute;
+  bottom: 5px;
+  left: 490px;
+  text-align: center;
+}

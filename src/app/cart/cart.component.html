@@ -1,4 +1,4 @@
-<app-nav-bar></app-nav-bar>
+<app-navbar></app-navbar>
 
 <div class="container">
     <h4 [ngStyle]="{'font-family' :'cursive','text-align': 'center', 'marginTop': '2rem', 'marginBottom': '2rem'}">Items in your cart</h4>
@@ -6,7 +6,7 @@
     <div
         class="cart-card"
         *ngFor="let cartItem of cartItems | paginate: { id: 'foo',
-        itemsPerPage: 2,
+        itemsPerPage: 10,
         currentPage: currentPage,
         totalItems: cartItems.length}"
     >
@@ -74,19 +74,28 @@
         >
         </pagination-controls>
     </div>
-    <div
-        class="pay-items"
-        *ngIf="cartItems.length > 0"
-    >
-        <p>Total Amount: {{totalAmount}} ₹ </p>
-        <button
-            type="button"
-            class="btn btn-outline-primary"
-            (click)="executeOrderItems()"
-        >
-            Pay
-        </button>
+
+    <div  class="pay-items" *ngIf="cartItems.length > 0">
+        <p style="font-size: 18px; font-weight: 300;">Total Amount: {{totalAmount}} ₹ </p>
+        <button type="button" class="btn btn-outline-primary" (click)="executeOrderItems()"> 
+            Pay  </button>
+    
+    <google-pay-button
+     
+    style="margin: bottom 10px; margin-left: 140px;"
+    (click)="executeOrderItems()"
+
+    environment="TEST"
+    buttonType="buy"
+    buttonColor="black"
+    [paymentRequest]="paymentRequest"
+    (loadpaymentdata)="onLoadPaymentData($event)"
+    (error)="onError($event)"
+    [paymentAuthorizedCallback]="onPaymentDataAuthorized">
+    </google-pay-button>
     </div>
+
+    
 </div>
 
 <!-- <div class="item-delete "><i name="trash-outline"></i></div> -->

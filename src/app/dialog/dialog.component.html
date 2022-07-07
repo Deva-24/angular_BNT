@@ -1,0 +1,81 @@
+<app-navbar></app-navbar>
+<br>
+<div class="container">
+    <div class="brand-section">
+        <div class="row">
+            <div class="col-6">
+                <h1 class="text-white">Burger Boss <i class='fab fa-free-code-camp'></i></h1>
+                <br><h4 class="text-white">Invoice <i class='fas fa-clipboard-list'></i></h4>
+            </div>
+            <div class="col-6">
+                <div class="company-details">
+                    <p class="text-white">No:18 Dubai kuruku street</p>
+                    <p class="text-white">Chennai, Tamil Nadu,<br> 600089</p>
+                    <p class="text-white">+91 1234659870</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="body-section">
+        <div class="row">
+            <div class="col-6">
+                <h2 class="heading">Invoice No : {{invoicenumber}} </h2>
+                <p class="sub-heading">Tracking No : {{trackingnumber}}  </p>
+                <p class="sub-heading">Email Address :  {{mail}}</p>
+                <p class="sub-heading">shipping Address: {{add}}</p>
+            </div>
+            <div class="col-6">
+                <p class="sub-heading">Full Name : {{name}} </p>
+                <p class="sub-heading">Phone Number :  {{phone}} </p>
+                <p class="sub-heading">Order Date :  {{today}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="body-section">
+        <h3 class="heading">Ordered Items</h3>
+        <br>
+        <table class="table-bordered">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th class="w-20">Price</th>
+                    <th class="w-20">Quantity</th>
+                    <th class="w-20">Grandtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Product Name</td>
+                    <td>X Rupees </td>
+                    <td>1 * x = x </td>
+                    <td>x1</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="text-right">Sub Total</td>
+                    <td>x2</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="text-right">GST 5%</td>
+                    <td>x3</td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="text-right">Grand Total</td>
+                    <td> Total(x1+x2) + Gst(x3) </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <h3 class="heading">Payment Status: Paid</h3>
+        <h3 class="heading">Payment Mode: Online Payment</h3>
+    </div>
+
+    <div class="body-section">
+        <p>&copy; Copyright 2022 - Burger Boss <i class='fab fa-free-code-camp'></i>  -  All rights reserved. 
+            <a class="float-right">www.burgerboss.com</a>
+        </p>
+    </div>      
+</div>  <br>
+<button class="btnb" (click)="convertToPDF()" >Download <i class='fas fa-file-download'></i></button>
+  

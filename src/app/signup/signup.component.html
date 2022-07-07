@@ -1,97 +1,131 @@
-<!-- <section id="signup-header">
-    <div class="custom-signup-header-body">
-        <p class="custom-main-heading">FISH MARKET</p>
-    </div>
-</section> -->
-<section id="signup-body">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="hero">
+    <div class="container" >
+        <img src="/assets/images/logo3.png">
+     </div>   
 
-    <div class="container">
-        <div class="custom-left-child">
-          <h3 [ngStyle]="{'text-align': 'center'}">SIGN UP!</h3>
-          <form autocomplete="off" (ngSubmit)="formSubmitted(formData)" #formData="ngForm">
-              <div class="form-group custom-margin-1rem">
-                  <input
-                      type="email"
-                      class="form-control input-design"
+<!-- <section id="signup-body"> -->
+    <div class="signup-form">
+        <form autocomplete="off" (ngSubmit)="formSubmitted(formData)" #formData="ngForm">
+            <h2>Create Account</h2>
+            <p class="lead">It's free and hardly takes lesser than 60 seconds.</p>
+            
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="far fa-id-card"></i></span> 
+                    <span>&nbsp;</span><input
+                    type="text"
+                    class="form-control input-design"
+                    [ngClass]="{'is-invalid': formData?.controls?.['username']?.touched ? !validateUserName(formData.value.username) : false}"
+                    placeholder="Enter Your Name"
+                    ngModel
+                    name="username"
+                    >
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-mail-bulk"></i></span>
+                    <input
+                    type="email"
+                      class="form-control"
                       [ngClass]="{ 'is-invalid': formData?.controls?.['email']?.touched ? !validateEmail(formData.value.email) : false}"
                       aria-describedby="emailHelp"
-                      placeholder="Enter email"
+                      placeholder="Enter Email"
                       ngModel
                       name="email"
+                      
                   >
-              </div>
-              <div class="form-group custom-margin-1rem">
-                  <input
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-unlock"></i></span>
+                    <input
                       type="password"
-                      class="form-control input-design"
+                      class="form-control"
                       [ngClass]="{ 'is-invalid': formData?.controls?.['password']?.touched ? !validatePassword(formData.value.password) : false}"
                       placeholder="Password"
                       ngModel
                       name="password"
                   >
-              </div>
-              <div class="form-group custom-margin-1rem">
-                  <input
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-unlock-alt"></i></span>
+                    <input
                       type="password"
-                      class="form-control input-design"
+                      class="form-control"
                       [ngClass]="{'is-invalid': formData?.controls?.['conformPassword']?.touched ? !validateConformPassword(formData.value.password, formData.value.conformPassword) : false}"
-                      placeholder="confirm password"
+                      placeholder="Confirm Password"
                       ngModel
                       name="conformPassword"
                   >
-              </div>
-              <div class="form-group custom-margin-1rem">
-                  <input
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fas fa-phone"></i></span> 
+                    <input
                       type="text"
-                      class="form-control input-design"
+                      class="form-control"
                       [ngClass]="{'is-invalid': formData?.controls?.['contact']?.touched ? !validateContact(formData.value.contact) : false}"
-                      placeholder="contact"
+                      placeholder="Mobile number"
                       ngModel
                       name="contact"
+                      
                   >
-              </div>
-              <div class="form-group custom-margin-1rem">
-                  <input
-                      type="text"
-                      class="form-control input-design"
-                      [ngClass]="{'is-invalid': formData?.controls?.['username']?.touched ? !validateUserName(formData.value.username) : false}"
-                      placeholder="Username"
-                      ngModel
-                      name="username"
-                  >
-              </div>
-              <div class = "custom-margin-1rem">
-                  <p class="cm-0">Gender</p>
+                </div>
+            </div>
+
+            <!-- <div class="form-group">
+                <div class="input-group">
+                    <p class="cm-0">Gender</p>
                   <div class="radio" *ngFor="let gender of genders" [ngStyle]="{'margin-left': '30px'}">
                     <label >
                       <input type="radio" name="gender" ngModel [value]="gender">
                       {{ gender }}
                     </label>
-                  </div>  
-              </div>
-              <!-- <div class = "custom-margin-1rem">
-                  <app-otp></app-otp>
-              </div> -->
+                  </div>
+                </div>
+            </div> -->
+
+              <p class="small text-center">By clicking the Sign Up button, you agree to our <br><a>Terms &amp; Conditions</a>, and <a>Privacy Policy</a>.</p>
               <div class="form-group custom-margin-1rem">
-                  <a
-                      routerLink="/users/login"
-                      class="link-secondary"
-                  >
-                      Have an account? Sign in here!
+                Already a Member?<a routerLink="/users/login" class="link-secondary">
+                     Log in here!
                   </a>
-              </div>
-              <button
+                
+
+              <button style="position: absolute; right: 3cm; bottom: 38px;"
                   type="submit"
                   class="btn btn-primary custom-margin-1rem"
-                  [disabled]="!(validateEntireForm(formData) && emailVerified)"
-              >
-                  Submit
-              </button>
-          </form>
-        </div>
-        <div class="custom-right-child">
-          <img src="/assets/images/signup_vector.jpg" alt="">
-          <!-- <h1>hello</h1> -->
-        </div>
+                  [disabled]="!(validateEntireForm(formData) && emailVerified)">Submit
+              </button> 
+            </div>
+        </form>
+     </div>
+
+    <div class="custom-right-child">
+      <!-- <img src="/assets/images/signup_vector.jpg" alt=""> -->
+      <!-- <h1>hello</h1> -->
     </div>
-</section>
+
+<!-- </section> -->
+
+
+
+</body>
+</html>

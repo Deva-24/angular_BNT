@@ -37,7 +37,10 @@ export class SigninComponent implements OnDestroy {
   emailVerified: boolean = this.otpService.otpVerified;
 
 
-
+  signin()
+  {
+    this.router.navigate(['users/signup']);
+  }
 
   emailValidity(email: any) {
     this.signInService.setEmail(email);

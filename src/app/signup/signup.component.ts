@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
 import { UserModel } from '../auth/user.model';
+import { DialogService } from '../services/dialog.service';
 import { OtpServices } from '../services/otp.service';
 import { RestServices } from '../services/rest.service';
 
@@ -15,12 +16,25 @@ import { RestServices } from '../services/rest.service';
 export class SignupComponent implements OnInit {
 
   subscription: Subscription;
+  
+
+  // @ViewChild('name',{static:true})name!:ElementRef;
+  // @ViewChild('mail',{static:true})mail!:ElementRef;
+  // @ViewChild('phone',{static:true})phone!:ElementRef;
+
+  private username='';
+  private email='';
+  private contact='';
+
+  // email=this.formData.value.username;
 
   constructor(
     private otpService: OtpServices, 
     private restService: RestServices, 
     private router: Router, 
+    // private data:DialogService,
     private userModel: UserModel,
+    private service:DialogService,
     private toastr: ToastrService) {
     this.subscription = this.otpService.otpVerifiedEventEmitter.subscribe(updatedValue => {
       this.emailVerified = updatedValue;
@@ -29,6 +43,20 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
   }
+   gotodialog()
+   {
+    this.service.variable1=this.username;
+    this.service.variable2=this.email;
+    this.service.variable3=this.contact;
+
+
+    // this.data.name=this.name.nativeElement.value;
+    // this.data.mail=this.mail.nativeElement.value;
+    // this.data.phone=this.phone.nativeElement.value;
+    this.router.navigate(['users/dialog'])
+   }
+
+
 
   genders: string[] = ['Male', 'Female']
   // emailVerified: boolean = this.otpService.otpVerified;

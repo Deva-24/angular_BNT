@@ -1,0 +1,44 @@
+.navbar {
+  background-image: url(/assets/images/bg8.jpg);
+  /* background-repeat: no-repeat;
+  background-size: cover; */
+    /* background: linear-gradient(rgba(0,0,0,1),rgba(0,0,0,1)); */
+    padding: 6px 6px;
+    width: auto;
+  }
+  
+  /* Style the header links */
+
+  .navbar a {
+    float: left;
+    color: rgb(248, 245, 245);
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    font: weight 400px;;
+    line-height: 25px;
+    border-radius: 24px;
+  }
+  
+  /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+  
+  .navbar a.logo {
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+}
+  
+  /* Change the background color on mouse-over */
+  .navbar a:hover {
+    background-color: antiquewhite;
+    color: rgb(240, 2, 2);
+  }
+    
+  /* Float the link section to the right */
+  .navbar-right {
+    float: right;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+  }

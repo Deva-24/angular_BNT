@@ -15,6 +15,6 @@ export class AboutComponent implements OnInit {
  
   back()
   {
-    this.route.navigate(['users/homepage']) //needs to be filled deva
+    this.route.navigate(['users/homepage'])
   }
 }

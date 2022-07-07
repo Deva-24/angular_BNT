@@ -13,7 +13,7 @@
         <div class="address details">
           <i class="fas fa-map-marker-alt"></i>
           <div class="topic">Address</div>
-          <div class="text-one"> DLF IT Park SEZ</div>
+          <div class="text-one"> No:18 Dubai kuruku street</div>
           <div class="text-two">Chennai, Tamil Nadu 600089</div>
         </div>
         <div class="phone details">
@@ -25,26 +25,30 @@
         <div class="email details">
           <i class="fas fa-envelope"></i>
           <div class="topic">Email</div>
-          <div class="text-one">B1ja02@gmail.com</div>
-          <div class="text-two">b1jao2@Outlook.com</div>
+          <div class="text-one">deva@gmail.com</div>
         </div>
       </div>
+
+
       <div class="right-side">
         <div class="topic-text">Send us a message</div>
-        <p>If you have any quries related to our page or if u wish to post your Reviews, you can share here,Top 3  best Reviews will be posted in our Main page. It's Our pleasure to have you as our Customer...</p>
+        <p>If you have any  types of quries related to our page, you can send  message from here. It's Our pleasure to help you.</p>
       
-      <form action="#">
+      <form >
         <div class="input-box">
-          <input type="text" placeholder="Enter your Name" required>
+          <input #name1 type="text" placeholder="Enter your Name"  required>
         </div>
+      
         <div class="input-box">
-          <input type="text" placeholder="Enter your Email" required>
+          <input #mob type="number" placeholder="Enter your Mobile Number" required>
         </div>
+      
         <div class="input-box message-box">
-            <input type="text" placeholder="Enter your Reviews/Queries here..." required>
+            <input #comments type="text" placeholder="Enter your Queries here" required>
         </div> 
+      
         <div class="button">
-          <input type="button" value="Send Now" >
+          <input type="submit" (click)="go()" value="Send Now" >
         </div>
         <br>
         <br>
@@ -52,7 +56,6 @@
           <input  (click)="back()" type="button" value="Back" >
         </div>
       </form>
-      
     </div>
     </div>
   </div>

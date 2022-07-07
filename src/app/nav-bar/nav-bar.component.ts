@@ -15,7 +15,6 @@ export class NavBarComponent implements OnInit {
   }
 
   executeLogOut() {
-    
     this.userModel.setUserValidationStatus(false);
     this.userModel.setUserId("");
     this.router.navigate(['/users', 'login']); 

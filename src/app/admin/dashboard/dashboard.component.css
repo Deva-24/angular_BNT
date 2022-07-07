@@ -11,7 +11,7 @@ p {
   align-items: center;
   padding: 2rem 1rem;
   padding-bottom: 4rem;
-
+  background-image: url(/assets/images/bg9.jpg);
 }
 
 
@@ -52,9 +52,13 @@ img {
   box-shadow: 0 0 8px 5px grey;
   margin: 1rem 0;
   padding: .3rem 0;
+  background:white ;
 }
 
 .product-item {
+ background-color: aliceblue;
+ border-color: blueviolet;
+ border-width: 3cm;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -98,7 +102,9 @@ h3 {
 form {
   box-shadow: 0 0 8px 5px grey ;
   padding: 1rem .3rem;
+  /* background-image: url(/assets/images/bg9.jpg); */
   border-radius: 2px;
+  background:white ;
 }
 
 .right-box-flex-container .form-control {

@@ -14,22 +14,32 @@ import { OrdersComponent } from './orders-component/orders-component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { PgnotfoundComponent } from './pgnotfound/pgnotfound.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { DialogComponent } from './dialog/dialog.component';
+
+
 
 const routes: Routes = [
-  { path: 'users/signup', component: SignupComponent, },
-  { path: 'users/login', component: SigninComponent, canActivate: [LoginActivate] },
-  { path: 'users/dashboard', component: UserDashboardComponent,canActivate: [AuthGuardService] },
-  { path: 'users/cart', component: CartComponent, canActivate: [AuthGuardService]},
-  { path: 'users/orders', component: OrdersComponent, canActivate: [AuthGuardService]},
-  { path: 'users/about', component:AboutComponent,canActivate: [AuthGuardService]},
-  { path: 'users/contact',component:ContactComponent,canActivate: [AuthGuardService]},
-  { path: 'users/homepage',component:HomepageComponent,canActivate: [AuthGuardService]},
+  { path: 'users/signup', component: SignupComponent},
+  { path: 'users/login', component: SigninComponent  },
+  { path: 'users/dashboard', component: UserDashboardComponent, },
+  { path: 'users/cart', component: CartComponent},
+  { path: 'users/orders', component: OrdersComponent}, //, canActivate: [AuthGuardService]
+  { path: 'users/about', component:AboutComponent},
+  { path: 'users/contact',component:ContactComponent},
+  { path: 'users/homepage',component:HomepageComponent},
   { path: '', redirectTo: '/users/login', pathMatch: 'full' },
+  { path: 'users/pgnotfound', component:PgnotfoundComponent},
+  { path: 'users/navbar', component:NavbarComponent},
+  { path: 'users/dialog', component:DialogComponent},
 
-  { path: 'admin/dashboard', component: DashboardComponent, canActivate: [AdminAuthGuard] },
-  { path: 'admin/orders', component: ViewordersComponent, canActivate: [AdminAuthGuard] },
-  { path: 'admin/feedback',component:FeedbackComponent, canActivate: [AdminAuthGuard]}
-];
+
+  { path: 'admin/dashboard', component: DashboardComponent },
+  { path: 'admin/orders', component: ViewordersComponent},
+  // , canActivate: [AdminAuthGuard] },
+  { path: 'admin/feedback',component:FeedbackComponent},
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

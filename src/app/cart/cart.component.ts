@@ -44,7 +44,65 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
   }
 
+ 
+  paymentRequest: google.payments.api.PaymentDataRequest={
+    
+    apiVersion: 2,
+    apiVersionMinor: 0,
+    allowedPaymentMethods: [
+      {
+        type: 'CARD',
+        parameters: {
+          allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
+          allowedCardNetworks: ['AMEX', 'VISA', 'MASTERCARD']
+        },
+        tokenizationSpecification: {
+          type: 'PAYMENT_GATEWAY',
+          parameters: {
+            gateway: 'example',
+            gatewayMerchantId: 'exampleGatewayMerchantId'
+          }
+        }
+      }
+    ],
 
+    merchantInfo: {
+      merchantId: '12345678901234567890',
+      merchantName: 'Demo Merchant'
+    },
+
+    transactionInfo: {
+      totalPriceStatus: 'FINAL',
+      totalPriceLabel: 'Total',
+      totalPrice: '100.00',
+      currencyCode: 'INR',
+      countryCode: 'US'
+    },
+    callbackIntents:['PAYMENT_AUTHORIZATION']
+  };
+  
+  onLoadPaymentData=(event:Event):
+  void =>{const eventDetail= event as CustomEvent<google.payments.api.PaymentData>;
+      console.log('load payment data',eventDetail.detail);
+  }
+
+  onPaymentDataAuthorized: google.payments.api.PaymentAuthorizedHandler =(
+  paymentData
+  ) => { console.log('payment Authorized',paymentData);
+  return{ transactionState: 'SUCCESS'};
+  }
+
+  onError =(event:ErrorEvent): void =>{
+    console.error('error occured',event.error);
+  }
+
+
+  invoice()
+  {
+    this.router.navigate(["users/orders"]); 
+  }
+
+  
   deleteCartItem(cartId: string): any {
     this.cartService.deleteCartItem(this.userModelService.getUserId(), cartId).subscribe({
       next: (responseData: any) => {

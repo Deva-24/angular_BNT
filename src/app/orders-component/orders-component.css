@@ -1,3 +1,8 @@
+/* body
+{
+  background-image: url(/assets/images/bg6.jpg);
+} */
+
 p {
   padding: 0;
   margin: 0;
@@ -48,3 +53,21 @@ img {
   width: 30%;
   text-align: center;
 }
+
+.btnb {
+  margin-left: 470px;
+  margin-bottom: 5px;
+  display: inline-block;
+  padding: 6px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 15%;
+  border-radius: 50px;
+}
+
+
+/*footer*/
+
+
